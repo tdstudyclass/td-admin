@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TD STUDY CENTER — Admin Panel</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#4F46E5">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<section id="login" class="login hidden">
+  <form id="loginForm" class="login-card">
+    <img class="logo" src="logo.png" alt="TD STUDY CENTER">
+    <h2>TD STUDY CENTER</h2>
+    <p class="muted">Admin Panel — লগইন করুন</p>
+    <input id="lEmail" type="email" placeholder="Admin ইমেইল" required autocomplete="username">
+    <input id="lPass" type="password" placeholder="পাসওয়ার্ড" required autocomplete="current-password">
+    <button class="btn primary block" type="submit">লগইন</button>
+    <p id="lErr" class="err"></p>
+  </form>
+</section>
+
+<section id="app" class="hidden">
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn" aria-label="menu">☰</button>
+    <b>TD STUDY CENTER Admin</b>
+    <button id="logoutBtn" class="btn ghost small">লগআউট</button>
+  </header>
+  <div class="layout">
+    <nav id="drawer" class="nav">
+      <a data-page="dashboard">📊 ড্যাশবোর্ড</a>
+      <a data-page="texts">📝 টেক্সট স্লাইডার</a>
+      <a data-page="images">🖼️ ছবির স্লাইডার</a>
+      <a data-page="content">📂 হোম বাটন ও কনটেন্ট</a>
+      <a data-page="payments">💳 পেমেন্ট</a>
+      <a data-page="settings">⚙️ সেটিংস (Ads / OneSignal)</a>
+    </nav>
+    <main id="view"></main>
+  </div>
+</section>
+
+<div id="toast" class="toast"></div>
+<script type="module" src="app.js"></script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(function(){});}</script>
+</body>
+</html>
